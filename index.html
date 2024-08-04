@@ -1,0 +1,101 @@
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>SOEBench</title>
+<link href="style.css" rel="stylesheet">
+<!-- <script type="text/javascript" src="./DreamBooth_files/jquery.js"></script> -->
+</head>
+
+<body>
+<div class="content">
+  <h1><strong>Towards Small Object Editing: A Benchmark Dataset and A Training-Free Approach</strong></h1>
+  <font size="+2">
+    <p style="text-align: center;">
+      <a href="https://github.com/panqihe-zjut/SOEBench/blob/main/_ACMMM2024_FINAL__SOEBench_compressed.pdf" target="_blank">[Paper]</a> &nbsp;&nbsp;&nbsp;&nbsp;
+      <a href="https://github.com/panqihe-zjut/SOEBench" target="_blank">[Code]</a>&nbsp;&nbsp;&nbsp;&nbsp;
+    </p>
+  </font>
+  <p id="authors">Anonymous Authors
+
+    <span style="font-size: 16px"><br>
+        <sup></sup> Anonymous Institutions <sup>
+        </p>
+
+        <p><b>SOEBench</b> is a standardized benchmark for quantitatively evaluating text-based small object editing(<b>SOE</b>) collected from MSCOCO and OpenImage and contains totally 4k images. 
+          We also introduce a training-free cross-attention guidance methods to deal with this problem.</p>
+</div>
+
+
+<div class="content">
+  <h2 style="text-align:center;"><strong>Abstract</strong></h2>
+  <p>A plethora of text-guided image editing methods has recently been developed by leveraging the impressive capabilities of large-scale diffusion-based generative models especially Stable Diffusion. Despite the success of diffusion models in producing high-quality
+    images, their application to small object generation has been limited due to difficulties in aligning cross-modal attention maps between text and these objects. Our approach offers a training-free
+    method that significantly mitigates this alignment issue with local and global attention guidance , enhancing the model’s ability to
+    accurately render small objects in accordance with textual descriptions. We detail the methodology in our approach, emphasizing its divergence from traditional generation techniques and highlighting its advantages. What’s more important is that we also provide <b>SOEBench</b> (Small Object Editing), a standardized benchmark
+    for quantitatively evaluating text-based small object generation collected from MSCOCO and OpenImage. Preliminary results demonstrate the effectiveness of our method, showing marked
+    improvements in the fidelity and accuracy of small object generation compared to existing models. This advancement not only
+    contributes to the field of AI and computer vision but also opens up new possibilities for applications in various industries where precise image generation is critical.
+  </p>
+    <img src="fig/teaser_soebench.png" class="teaser-gif" style="width:100%;">
+  </div>
+
+
+<div class="content">
+    <h2 style="text-align:center;"><strong>Method</strong></h2>
+    <!-- <p> <b>PowerPaint</b> fine-tunes a text-to-image model with two task prompts, i.e., P<sub>obj</sub> and P<sub>ctxt</sub>, for text-guided object inpainting and context-aware image inpainting, respectively. Specifically, P<sub>obj</sub> can be used as a negative prompt with classifier-free guidance sampling for effective object removal. We further introduce P<sub>shape</sub> for shape-guided object inpainting, which can be further extended by prompt interpolation with P<sub>ctxt</sub> to control how closely the generated objects should align with the mask shape.</p> -->
+    <!-- <p><b></b> is fune-tuned with small-scaled text-image datasets with two main components:First, drawing inspiration from LoRA that known for its efficiency in fine-tuning diffusion models, we propose the <b>SO-LoRA</b>, which aims to optimize low-rank matrices for small object editing, enhancing the alignment between textual descriptions and generated small objects. Second, we propose the <b>Cross-Scale Score Distillation</b> loss to further enhance the image quality. Additionally, to further enhance the image fidelity, we can optionally fine-tune the VAE by performing pixel-level reconstruction.</p> -->
+    <p>Building upon the constructed SOEBench, we further provide a strong baseline method for small object editing. As discussed above, the quality of the cross-attention map is crucial in small
+    object editing. To this end, we propose a new joint attention guidance method to enhance the accuracy of the cross-attention map alignment from both local and global perspectives. In particular,we first develop a local attention guidance strategy to enhance
+    the foreground cross-attention map alignment and then introduce a global attention guidance strategy to enhance the background cross-attention map alignment. Our proposed baseline method is training-free but highly effective in addressing the SOE problem.</p>
+    <br>
+    <img class="summary-img" src="fig/pipeline1.png" style="width:100%;">
+    <img class="summary-img" src="fig/pipeline2.png" style="width:100%;">
+     <br>
+  </div>
+
+<div class="content">
+  <h2 style="text-align:center;"><strong>Method Comparison </strong></h2>
+  <img src="fig/compare.png" class="teaser-gif" style="width:100%;">
+</div>
+
+
+
+
+<!-- 
+<div id="results2" class="content">
+  <h2 style="text-align:center;"><strong>Integration with <a href="https://github.com/lllyasviel/ControlNet" target="_blank">ControlNet </a></strong></h2>
+    <h4>PowerPaint + Depth</h4>
+    <img class="summary-img" src="fig/sub_depth.png" style="width:100%;">
+    <h4>PowerPaint + Canny</h4>
+    <img class="summary-img" src="fig/sup_canny.png" style="width:100%;">
+    <h4>PowerPaint + HED</h4>
+    <img class="summary-img" src="fig/sup_hed.png" style="width:100%;">
+    <h4>PowerPaint + Human Pose</h4>
+    <img class="summary-img" src="fig/sup_pose.png" style="width:100%;">
+</div>
+ -->
+
+<div class="content">
+  <h2 style="text-align:center;"><strong>User Preference</strong></h2>
+  <img src="fig/user.png" class="teaser-gif" style="width:100%;">
+</div>
+
+<div class="content">
+  <h2 style="text-align:center;"><strong>BibTex</strong></h2>
+  <code> <br>@misc{Anonymous2024Anonymous,
+      title={Towards Small Object Editing: A Benchmark Dataset and A
+Training-Free Approach}, 
+      author={Anonymous Authors},
+      year={2024},
+      eprint={XXXX.XXXX},
+      archivePrefix={arXiv},
+      primaryClass={cs.CV}
+}
+   </code> 
+</div>
+
+</body>
+
+
+</html>
